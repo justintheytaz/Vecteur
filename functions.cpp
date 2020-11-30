@@ -29,7 +29,7 @@ using Matrice = vector<Vecteur>;
 
 Matrice shuffleMatrice(const Matrice& m1, const Matrice& m2){
 
-   srand(unsigned(time(0)));
+   srand(unsigned(time(nullptr)));
 
    // Création d'une nouvelle matrice et copie du contenu des 2 matrices dans celle-ci.
    Matrice m(m1.size() + m2.size());
@@ -49,22 +49,14 @@ int nbLignes(const Matrice& m){
 }
 
 int nbColonnes(const Matrice& m){
-   if (m.size() > 0){
-      return m.front().size();
-   }
-   else return 0;
+   return m.size() > 0 ? m.front().size() : 0;
 }
 
 bool estCarree(const Matrice& m){
    const int NB_LIGNES     = nbLignes(m);
    const int NB_COLONNES   = nbColonnes(m);
 
-   if (NB_COLONNES > 0){
-      return NB_LIGNES == NB_COLONNES;
-   }
-   else{
-      return false;
-   }
+   return NB_COLONNES > 0 && NB_LIGNES == NB_COLONNES;
 }
 
 bool sommeDiag(const Matrice& m, int& somme, bool directionDroite){
@@ -73,7 +65,7 @@ bool sommeDiag(const Matrice& m, int& somme, bool directionDroite){
    if (estCarree(m)){
       somme = 0;
       // Si la direction est vers la droite, on commence à 0. Sinon, on commence à la fin.
-      int colonne = (directionDroite) ? 0 : (int)m.front().size() - 1;
+      int colonne = (directionDroite) ? 0 : m.front().size() - 1;
       for (int ligne = 0; ligne < NB_LIGNES; ++ligne){
          somme += m.at(ligne).at(colonne);
 

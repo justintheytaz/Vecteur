@@ -22,13 +22,13 @@
 using Vecteur = std::vector<int>;
 using Matrice = std::vector<Vecteur>;
 
-Matrice shuffleMatrice(const Matrice m1, const Matrice m2);
+Matrice shuffleMatrice(const Matrice& m1, const Matrice& m2);
 void sortMatrice(Matrice& m);
-int nbLignes(const Matrice m);
-int nbColonnes(const Matrice m);
-bool estCarree(const Matrice m);
-bool sommeDiag(const Matrice m, int& somme, bool directionDroite);
-bool sommeDiagDG(const Matrice m, int& somme);
-bool sommeDiagGD(const Matrice m, int& somme);
+int nbLignes(const Matrice& m);
+int nbColonnes(const Matrice& m);
+bool estCarree(const Matrice& m);
+bool sommeDiag(const Matrice& m, int& somme, bool directionDroite);
+bool sommeDiagDG(const Matrice& m, int& somme);
+bool sommeDiagGD(const Matrice& m, int& somme);
 
 #endif //LIBRAIRIE_FUNCTIONS_H

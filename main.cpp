@@ -22,8 +22,8 @@ using namespace std;
 
 #define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
 
-void calculerSommeDiagDG(const Matrice m);
-void calculerSommeDiagGD(const Matrice m);
+void calculerSommeDiagDG(const Matrice& m);
+void calculerSommeDiagGD(const Matrice& m);
 
 int main() {
 
@@ -39,7 +39,7 @@ int main() {
    return EXIT_SUCCESS;
 }
 
-void calculerSommeDiagDG(const Matrice m){
+void calculerSommeDiagDG(const Matrice& m){
    int somme;
    if (sommeDiagDG(m, somme)){
       cout << "La somme de la diagonale gauche de la matrice est : " << somme << endl;
@@ -48,7 +48,7 @@ void calculerSommeDiagDG(const Matrice m){
    }
 }
 
-void calculerSommeDiagGD(const Matrice m){
+void calculerSommeDiagGD(const Matrice& m){
    int somme;
    if (sommeDiagGD(m, somme)){
       cout << "La somme de la diagonale droite de la matrice est : " << somme << endl;

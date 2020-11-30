@@ -27,7 +27,7 @@ using namespace std;
 using Vecteur = vector<int>;
 using Matrice = vector<Vecteur>;
 
-Matrice shuffleMatrice(const Matrice m1, const Matrice m2){
+Matrice shuffleMatrice(const Matrice& m1, const Matrice& m2){
 
    srand(unsigned(time(0)));
 
@@ -44,18 +44,18 @@ void sortMatrice(Matrice& m){
    sort(m.begin(), m.end());
 }
 
-int nbLignes(const Matrice m){
+int nbLignes(const Matrice& m){
    return m.size();
 }
 
-int nbColonnes(const Matrice m){
+int nbColonnes(const Matrice& m){
    if (m.size() > 0){
       return m.front().size();
    }
    else return 0;
 }
 
-bool estCarree(const Matrice m){
+bool estCarree(const Matrice& m){
    const int NB_LIGNES     = nbLignes(m);
    const int NB_COLONNES   = nbColonnes(m);
 
@@ -67,15 +67,15 @@ bool estCarree(const Matrice m){
    }
 }
 
-bool sommeDiag(const Matrice m, int& somme, bool directionDroite){
+bool sommeDiag(const Matrice& m, int& somme, bool directionDroite){
    const int NB_LIGNES = nbLignes(m);
 
    if (estCarree(m)){
       somme = 0;
       // Si la direction est vers la droite, on commence à 0. Sinon, on commence à la fin.
-      int colonne = (directionDroite) ? 0 : m.front().size() - 1;
+      int colonne = (directionDroite) ? 0 : (int)m.front().size() - 1;
       for (int ligne = 0; ligne < NB_LIGNES; ++ligne){
-         somme += m[ligne][colonne];
+         somme += m.at(ligne).at(colonne);
 
          // Si la direction est vers la droite, on incrémente, sinon on décrémente.
          colonne += (directionDroite) ? 1 : -1;
@@ -87,12 +87,12 @@ bool sommeDiag(const Matrice m, int& somme, bool directionDroite){
    }
 }
 
-bool sommeDiagDG(const Matrice m, int& somme){
+bool sommeDiagDG(const Matrice& m, int& somme){
    // Direction -1 pour aller de droite à gauche.
    return sommeDiag(m, somme, false);
 }
 
-bool sommeDiagGD(const Matrice m, int& somme){
+bool sommeDiagGD(const Matrice& m, int& somme){
    // Direction 1 pour aller de gauche à droite.
    return sommeDiag(m, somme, true);
 }

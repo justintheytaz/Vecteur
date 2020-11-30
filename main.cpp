@@ -15,16 +15,12 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <climits>
-#include <vector>
-#include <iomanip>
 #include <cmath>
 #include "functions.h"
 
 using namespace std;
 
 #define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
-
 
 void calculerSommeDiagDG(const Matrice m);
 void calculerSommeDiagGD(const Matrice m);

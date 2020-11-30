@@ -16,37 +16,20 @@
 #include <iostream>
 #include <cstdlib>         //srand()
 #include <ctime>           //time()
-#include <cmath>           //sin, cos, tan
-
-#include "functions.h"
-
-using namespace std;
-#define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
-
-/*
------------------------------------------------------------------------------------
-Nom du fichier  :
-Auteur(s)       : Alexis Monthoux
-Date creation   :
-Description     :
-Remarque(s)     :
-Compilateur     : Mingw-w64 g++ 8.1.0
------------------------------------------------------------------------------------
-*/
-
 #include <algorithm>
 #include <vector>
+#include "functions.h"
 
+#define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
 
 using namespace std;
-
 
 using Vecteur = vector<int>;
 using Matrice = vector<Vecteur>;
 
 Matrice shuffleMatrice(const Matrice m1, const Matrice m2){
 
-   // TODO: gestion de la seed du générateur.
+   srand(unsigned(time(0)));
 
    // Création d'une nouvelle matrice et copie du contenu des 2 matrices dans celle-ci.
    Matrice m(m1.size() + m2.size());

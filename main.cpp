@@ -19,15 +19,21 @@
 #include <vector>
 #include <iomanip>
 #include <cmath>
+#include "functions.h"
 
 using namespace std;
 
 #define VIDER_BUFFER cin.ignore(numeric_limits<streamsize>::max(), '\n')
 
 
+void calculerSommeDiagDG(const Matrice m);
+void calculerSommeDiagGD(const Matrice m);
+
 int main() {
 
-
+   Matrice m1 = {{6,5,4},{1,2,3},{8,7,9}};
+   calculerSommeDiagDG(m1);
+   calculerSommeDiagGD(m1);
 
    // ------------------------------------------------------------------------
    // Fin programme
@@ -35,4 +41,22 @@ int main() {
    VIDER_BUFFER;
 
    return EXIT_SUCCESS;
+}
+
+void calculerSommeDiagDG(const Matrice m){
+   int somme;
+   if (sommeDiagDG(m, somme)){
+      cout << "La somme de la diagonale gauche de la matrice est : " << somme << endl;
+   } else{
+      cout << "La matrice n'est pas carree !" << endl;
+   }
+}
+
+void calculerSommeDiagGD(const Matrice m){
+   int somme;
+   if (sommeDiagGD(m, somme)){
+      cout << "La somme de la diagonale droite de la matrice est : " << somme << endl;
+   } else{
+      cout << "La matrice n'est pas carree !" << endl;
+   }
 }
